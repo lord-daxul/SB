@@ -1,69 +1,33 @@
-"use client";
-
 import { Calendar, ArrowRight, BookOpen } from "lucide-react";
 import Link from "next/link";
 
-interface Post {
-  id: string;
-  title: string;
-  slug: string;
-  excerpt: string;
+interface WPPost {
+  id: number;
   date: string;
-  featuredImage?: {
-    node: {
-      sourceUrl: string;
-      altText: string;
-    };
+  title: { rendered: string };
+  excerpt: { rendered: string };
+  slug: string;
+  _embedded?: {
+    "wp:featuredmedia"?: Array<{
+      source_url: string;
+      alt_text: string;
+    }>;
   };
 }
 
 interface BlogProps {
-  posts?: Post[];
+  posts?: WPPost[];
 }
 
-const defaultPosts: Post[] = [
-  {
-    id: "1",
-    title: "Los riesgos de trabajar en estudios webcam clandestinos",
-    slug: "los-riesgos-de-trabajar-en-estudios-webcam-clandestinos",
-    excerpt: "Descubre por qué elegir un estudio legal y profesional es crucial para tu seguridad y éxito profesional en la industria webcam.",
-    date: "2026-05-15",
-    featuredImage: {
-      node: {
-        sourceUrl: "https://spyblue.co/wp-content/uploads/2026/05/16481bc4-bd02-443c-ad37-a6e265618df6.png",
-        altText: "Estudio webcam profesional vs clandestino",
-      },
-    },
-  },
-  {
-    id: "2",
-    title: "La importancia de trabajar con un estudio webcam legal en Colombia",
-    slug: "la-importancia-de-trabajar-con-un-estudio-webcam-legal-en-colombia",
-    excerpt: "Conoce los beneficios legales, laborales y de seguridad que obtienes al trabajar con un estudio webcam debidamente registrado.",
-    date: "2026-05-10",
-    featuredImage: {
-      node: {
-        sourceUrl: "https://spyblue.co/wp-content/uploads/2026/05/studio-webcam-legal-en-colombia.png",
-        altText: "Legalidad estudio webcam Colombia",
-      },
-    },
-  },
-  {
-    id: "3",
-    title: "SpyBlue: estudio webcam en Cúcuta con mejores instalaciones",
-    slug: "spyblue-estudio-webcam-en-cucuta-con-mejores-instalaciones-para-crecer-profesionalmente",
-    excerpt: "Conoce nuestras modernas instalaciones diseñadas para maximizar tu productividad y bienestar como modelo webcam profesional.",
-    date: "2026-02-20",
-    featuredImage: {
-      node: {
-        sourceUrl: "https://spyblue.co/wp-content/uploads/2026/02/5e5a4143-a33c-4eb2-a129-d63c63f68814.png",
-        altText: "Instalaciones SpyBlue Cúcuta",
-      },
-    },
-  },
-];
+function getFeaturedImage(post: WPPost): string | null {
+  return post._embedded?.["wp:featuredmedia"]?.[0]?.source_url || null;
+}
 
-export default function Blog({ posts = defaultPosts }: BlogProps) {
+function getFeaturedImageAlt(post: WPPost): string {
+  return post._embedded?.["wp:featuredmedia"]?.[0]?.alt_text || "";
+}
+
+export default function Blog({ posts = [] }: BlogProps) {
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString("es-CO", {
       year: "numeric",
@@ -93,11 +57,11 @@ export default function Blog({ posts = defaultPosts }: BlogProps) {
               key={post.id}
               className="card-dark overflow-hidden group"
             >
-              {post.featuredImage && (
+              {getFeaturedImage(post) && (
                 <div className="aspect-video overflow-hidden">
                   <img
-                    src={post.featuredImage.node.sourceUrl}
-                    alt={post.featuredImage.node.altText}
+                    src={getFeaturedImage(post)!}
+                    alt={getFeaturedImageAlt(post)}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
@@ -108,9 +72,14 @@ export default function Blog({ posts = defaultPosts }: BlogProps) {
                   {formatDate(post.date)}
                 </div>
                 <h3 className="text-lg font-bold text-white mb-3 line-clamp-2 group-hover:text-cyan-400 transition-colors">
-                  {post.title}
+                  <Link href={`/blog/${post.slug}`}>
+                    {post.title.rendered}
+                  </Link>
                 </h3>
-                <p className="text-white/70 text-sm mb-4 line-clamp-3">{post.excerpt}</p>
+                <div
+                  className="text-white/70 text-sm mb-4 line-clamp-3"
+                  dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}
+                />
                 <Link
                   href={`/blog/${post.slug}`}
                   className="inline-flex items-center text-cyan-400 font-medium hover:text-cyan-300"

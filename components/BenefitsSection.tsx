@@ -7,28 +7,28 @@ const benefits = [
     icon: TrendingUp,
     title: "Pagos Puntuales",
     description: "Puntualidad y seguridad en tus pagos quincenales, en Spyblue puedes llegar a obtener ingresos que nunca pensaste.",
-    image: "/images/pagos puntuales.webp",
+    image: "https://backend.spyblue.co/wp-content/uploads/2025/04/spyblue-studio.webp",
     features: ["Pagos quincenales", "Seguridad garantizada", "Altos ingresos"]
   },
   {
     icon: Clock,
     title: "Horarios Flexibles",
     description: "Disponemos de 3 turnos en horarios 24 / 7, Tu escoges el que más te convenga te esperamos en nuestros estudios en la ciudad de Cúcuta.",
-    image: "/images/horarios flexibles.webp",
+    image: "https://backend.spyblue.co/wp-content/uploads/2025/04/turnos-estudio-webcam.webp",
     features: ["3 turnos disponibles", "24/7", "Elige tu horario"]
   },
   {
     icon: Shield,
     title: "Tecnología de Punta",
     description: "Disponemos de equipos de ultima generación, somos referentes a nivel latinoamericano, en tecnología e innovación.",
-    image: "/images/tecnologia de punta.webp",
+    image: "https://backend.spyblue.co/wp-content/uploads/2025/04/studio-webcam-en-cucuta.webp",
     features: ["Equipos de última generación", "Referentes latam", "Innovación constante"]
   },
   {
     icon: Eye,
     title: "Discreción Total",
     description: "En Nuestro estudio WEBCAM SpyBlue. Nos preocupamos por tu privacidad y tu seguridad con bloqueo de los países que elijas.",
-    image: "/images/discrepcion total.webp",
+    image: "https://backend.spyblue.co/wp-content/uploads/2025/04/estudio-webcam-cucuta.webp",
     features: ["Bloqueo de países", "Privacidad total", "Seguridad garantizada"]
   }
 ];

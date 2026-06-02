@@ -1,0 +1,9 @@
+{
+  "name": "spyblue-headless",
+  "compatibility_date": "2026-06-02",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": ".open-next/assets"
+  },
+  "main": ".open-next/worker.js"
+}

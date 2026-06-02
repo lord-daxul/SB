@@ -6,8 +6,11 @@ import FAQ from "@/components/FAQ";
 import Blog from "@/components/Blog";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
+import { getPosts } from "@/lib/wordpress";
 
-export default function Home() {
+export default async function Home() {
+  const posts = await getPosts();
+
   return (
     <>
       <Header />
@@ -16,7 +19,7 @@ export default function Home() {
         <BenefitsSection />
         <PlatformsSection />
         <FAQ />
-        <Blog />
+        <Blog posts={posts} />
         <CTA />
       </main>
       <Footer />
