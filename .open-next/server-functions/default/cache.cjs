@@ -1,4 +1,4 @@
-globalThis.disableIncrementalCache = false;globalThis.disableDynamoDBCache = false;globalThis.openNextDebug = false;globalThis.openNextVersion = "4.0.2";globalThis.nextVersion = "16.2.7";
+globalThis.disableIncrementalCache = false;globalThis.disableDynamoDBCache = false;globalThis.openNextDebug = false;globalThis.openNextVersion = "4.0.2";globalThis.nextVersion = "15.2.4";
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;

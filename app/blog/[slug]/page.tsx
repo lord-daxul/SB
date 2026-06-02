@@ -5,9 +5,9 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 interface BlogPostPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 // Static data for demo (replace with GraphQL fetch)
@@ -57,8 +57,9 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function BlogPostPage({ params }: BlogPostPageProps) {
-  const post = posts.find((p) => p.slug === params.slug);
+export default async function BlogPostPage({ params }: BlogPostPageProps) {
+  const { slug } = await params;
+  const post = posts.find((p) => p.slug === slug);
 
   if (!post) {
     notFound();
