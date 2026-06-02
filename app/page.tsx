@@ -26,6 +26,3 @@ export default async function Home() {
     </>
   );
 }
-//
-Redeploy
-trigger
