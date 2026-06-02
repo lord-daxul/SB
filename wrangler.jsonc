@@ -1,9 +1,11 @@
 {
+  "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "spyblue-headless",
   "compatibility_date": "2026-06-02",
   "compatibility_flags": ["nodejs_compat"],
   "assets": {
-    "directory": ".open-next/assets"
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
   },
   "main": ".open-next/worker.js"
 }
