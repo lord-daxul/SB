@@ -42,12 +42,6 @@ export default function PlatformsSection() {
               </div>
             ))}
           </div>
-          
-          <div className="text-center mt-8">
-            <p className="text-white/60 text-sm">
-              Compatible con las principales plataformas de streaming webcam
-            </p>
-          </div>
         </div>
       </div>
     </section>

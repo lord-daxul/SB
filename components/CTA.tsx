@@ -7,7 +7,7 @@ const WHATSAPP_MESSAGE = "Hola, estoy interesada en empezar mi carrera como mode
 
 export default function CTA() {
   return (
-    <section id="cta" className="section-padding bg-[#0b1020] relative overflow-hidden">
+    <section className="section-padding bg-[#0b1020] relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 grid-bg bg-grid opacity-30"></div>
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-full blur-3xl"></div>
