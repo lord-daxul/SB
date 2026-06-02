@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
-  "name": "spyblue-headless",
+  "name": "sb",
   "compatibility_date": "2026-06-02",
   "compatibility_flags": ["nodejs_compat"],
   "assets": {
