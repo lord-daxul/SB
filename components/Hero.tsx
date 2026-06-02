@@ -29,7 +29,7 @@ export default function Hero() {
             </div>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6">
-              <span className="text-white">SpyBlue Estudio</span>
+              <span className="text-white">SpyBlue Studio</span>
               <span className="block text-4xl md:text-5xl lg:text-5xl gradient-text mt-2">
                 Webcam en Cúcuta
               </span>
