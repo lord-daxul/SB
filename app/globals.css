@@ -1,0 +1,244 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-bg: #0b1020;
+    --color-accent: #22d3ee;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-[#0b1020] text-white font-sans;
+  }
+}
+
+@layer components {
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold mb-4;
+  }
+  .accent-text {
+    @apply text-cyan-400;
+  }
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm
+           bg-gradient-to-r from-[#2979FF] to-[#EA3D92] text-white transition-all duration-300
+           hover:shadow-lg hover:shadow-[#EA3D92]/40 hover:-translate-y-0.5;
+  }
+  .btn-outline {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm
+           border border-[#2979FF] text-white hover:border-[#EA3D92] hover:text-[#EA3D92]
+           transition-all duration-300 hover:-translate-y-0.5;
+  }
+  .card-dark {
+    @apply bg-white/5 border border-[#2979FF]/30 rounded-2xl backdrop-blur-sm
+           hover:border-[#EA3D92] transition-all duration-300;
+  }
+  .tag {
+    @apply text-xs font-medium px-2.5 py-1 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20;
+  }
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+  .container-padding {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #22d3ee, #818cf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glow-cyan {
+  box-shadow: 0 0 40px rgba(34, 211, 238, 0.15);
+}
+
+.hero-glow {
+  background: radial-gradient(ellipse at 60% 50%, rgba(34, 211, 238, 0.08) 0%, transparent 70%);
+}
+
+.grid-bg {
+  background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* ── MODO CLARO: estilo topmodels-agency.com ── */
+
+body.light {
+  background-color: #FFFFFF !important;
+  color: #0F172A !important;
+}
+
+/* ── Secciones específicas ── */
+
+/* Hero: se mantiene oscuro */
+body.light #hero {
+  background-color: #0b1020 !important;
+}
+
+/* Benefits: rosa pálido */
+body.light #beneficios {
+  background-color: #FCE4EC !important;
+}
+
+/* Platforms: blanco */
+body.light #platforms {
+  background-color: #FFFFFF !important;
+}
+
+/* FAQ: rosa pálido */
+body.light #faq {
+  background-color: #FCE4EC !important;
+}
+
+/* Blog: blanco */
+body.light #blog {
+  background-color: #FFFFFF !important;
+}
+
+/* CTA: oscuro */
+body.light #cta {
+  background-color: #0b1020 !important;
+}
+
+/* Footer: rosa fuerte */
+body.light #footer {
+  background-color: #EA3D92 !important;
+}
+
+body.light .grid-bg {
+  background-image: linear-gradient(#E2E8F0 1px, transparent 1px),
+                    linear-gradient(90deg, #E2E8F0 1px, transparent 1px) !important;
+  opacity: 0.15 !important;
+}
+
+/* Tarjetas en modo claro */
+body.light .card-dark {
+  background-color: #FFFFFF !important;
+  border-color: #E2E8F0 !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05) !important;
+}
+body.light .card-dark:hover {
+  box-shadow: 0 4px 12px rgba(234,61,146,0.1) !important;
+  border-color: rgba(234,61,146,0.5) !important;
+}
+
+/* Botón outline en modo claro: negro */
+body.light .btn-outline {
+  border-color: #0F172A !important;
+  color: #0F172A !important;
+}
+body.light .btn-outline:hover {
+  border-color: #EA3D92 !important;
+  color: #EA3D92 !important;
+  background-color: transparent !important;
+}
+
+/* Texto: en modo claro las utilidades text-white/* deben volverse oscuras */
+body.light [class*="text-white"] {
+  color: #0F172A !important;
+}
+body.light [class*="text-white/50"],
+body.light [class*="text-white/40"],
+body.light [class*="text-white/30"],
+body.light [class*="text-white/25"],
+body.light [class*="text-white/60"],
+body.light [class*="text-white/70"] {
+  color: #475569 !important;
+}
+
+/* Override para secciones oscuras en modo claro: texto blanco */
+body.light #hero [class*="text-white"],
+body.light #cta [class*="text-white"] {
+  color: #FFFFFF !important;
+}
+body.light #hero [class*="text-white/50"],
+body.light #hero [class*="text-white/60"],
+body.light #hero [class*="text-white/70"],
+body.light #cta [class*="text-white/50"],
+body.light #cta [class*="text-white/60"],
+body.light #cta [class*="text-white/70"] {
+  color: rgba(255,255,255,0.7) !important;
+}
+
+/* El botón btn-primary debe seguir siendo blanco en ambos modos */
+body.light .btn-primary,
+body.light .btn-primary * {
+  color: #FFFFFF !important;
+}
+
+/* Tag en modo claro */
+body.light .tag {
+  background-color: rgba(234,61,146,0.08) !important;
+  color: #EA3D92 !important;
+  border-color: rgba(234,61,146,0.2) !important;
+}
+
+/* Acentos cyan → rosa en modo claro */
+body.light .accent-text {
+  color: #EA3D92 !important;
+}
+
+/* gradient-text en modo claro: rosa a dorado */
+body.light .gradient-text {
+  background: linear-gradient(135deg, #EA3D92, #D4AF37) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+/* glow en modo claro: rosa */
+body.light .glow-cyan {
+  box-shadow: 0 0 40px rgba(234,61,146,0.12) !important;
+}
+
+/* Hero glow en modo claro: rosa */
+body.light .hero-glow {
+  background: radial-gradient(ellipse at 60% 50%, rgba(234,61,146,0.06) 0%, transparent 70%) !important;
+}
+
+/* Fondo del navbar en modo claro scrolled */
+body.light header[class*="bg-[#0b1020]"] {
+  background-color: rgba(255,255,255,0.9) !important;
+}
+
+/* Menú móvil en modo claro */
+body.light div[class*="bg-[#0b1020]/95"] {
+  background-color: rgba(255,255,255,0.95) !important;
+}
+body.light div[class*="border-white/10"] {
+  border-color: #E2E8F0 !important;
+}
+
+/* Cyan text accents en modo claro → rosa */
+body.light span[class*="text-cyan-400"],
+body.light div[class*="text-cyan-400"] {
+  color: #EA3D92 !important;
+}
+body.light span[class*="bg-cyan-400"] {
+  background-color: #EA3D92 !important;
+}
+body.light span[class*="border-cyan-400"] {
+  border-color: #EA3D92 !important;
+}
+
+/* Override para secciones oscuras en modo claro: cyan se mantiene cyan */
+body.light #hero span[class*="text-cyan-400"],
+body.light #cta span[class*="text-cyan-400"] {
+  color: #22d3ee !important;
+}
+
+/* Menú móvil y bordes */
+body.light div[class*="border-white/5"],
+body.light div[class*="border-white/10"] {
+  border-color: #E2E8F0 !important;
+}
+body.light div[class*="bg-white/5"] {
+  background-color: #F1F5F9 !important;
+}
